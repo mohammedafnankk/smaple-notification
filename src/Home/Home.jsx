@@ -11,7 +11,7 @@ export default function Home() {
 
       try {
         axios.post(
-          "http://localhost:5000/api/pns/store",
+          "https://86l2d590-5000.inc1.devtunnels.ms/api/pns/store",
           {
             fcmToken:fcm
           },
@@ -29,7 +29,7 @@ export default function Home() {
   }
   const testNotification =()=>{
     try {
-        axios.get('http://localhost:5000/api/pns/test',
+        axios.get('https://86l2d590-5000.inc1.devtunnels.ms/api/pns/test',
             {
             headers: {
               Authorization: `Bearer ${token}`,
