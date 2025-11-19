@@ -12,30 +12,30 @@ function App() {
   const vKey = import.meta.env.VITE_PUBLIC_FIREBASE_VAPID_KEY;
   
   
-  const requestPermission = async () => {
-    console.log("Requesting notification permission...");
+  // const requestPermission = async () => {
+  //   console.log("Requesting notification permission...");
 
-    const permission = await Notification.requestPermission();
+  //   const permission = await Notification.requestPermission();
 
-    if (permission === "granted") {
-      console.log("Notification permission granted.");
+  //   if (permission === "granted") {
+  //     console.log("Notification permission granted.");
 
-      // Get FCM token
-      const token = await getToken(messaging, {
-        vapidKey: vKey
-      });
+  //     // Get FCM token
+  //     const token = await getToken(messaging, {
+  //       vapidKey: vKey
+  //     });
 
-      console.log("FCM Token:", token);
-      localStorage.setItem("fcm",token)
+  //     console.log("FCM Token:", token);
+  //     localStorage.setItem("fcm",token)
     
-    } else {
-      console.log("Permission not granted.");
-    }
-  };
+  //   } else {
+  //     console.log("Permission not granted.");
+  //   }
+  // };
 
-  useEffect(() => {
-    requestPermission();
-  }, []);
+  // useEffect(() => {
+  //   requestPermission();
+  // }, []);
   
 
   return (
