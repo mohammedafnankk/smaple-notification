@@ -7,6 +7,9 @@ import { getToken } from 'firebase/messaging'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login/Login'
 import Home from './Home/Home'
+import AdminLogin from './Admin/Admin.login'
+import AdminDashboard from './AdminDashboard/Admin.dashboard'
+import CommunityRegister from './CommuniyAdmin/Community.register'
 
 function App() {
   const vKey = import.meta.env.VITE_PUBLIC_FIREBASE_VAPID_KEY;
@@ -43,6 +46,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/community/register" element={<CommunityRegister />} />
+
       </Routes>
     </BrowserRouter>
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToken } from "firebase/messaging";
+import { deleteToken, getToken } from "firebase/messaging";
 import React, { useEffect } from "react";
 import { messaging } from "../firebase";
 export default function Home() {
@@ -20,6 +20,16 @@ export default function Home() {
     }
 
     console.log("Permission granted!");
+    // Delete existing token (forces FCM to create a new one)
+        try {
+          const currentToken = await getToken(messaging, { vapidKey: vKey });
+          if (currentToken) {
+            await deleteToken(messaging);
+            console.log("Old token deleted:", currentToken);
+          }
+        } catch (err) {
+          console.log("No existing token found");
+        }
 
     try {
       // ⚠️ Generate NEW token every time
