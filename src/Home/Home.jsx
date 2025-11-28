@@ -1,7 +1,9 @@
 import axios from "axios";
 import { deleteToken, getToken } from "firebase/messaging";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { messaging } from "../firebase";
+import Chat from "../Chat/Chat";
+import ConversationsList from "../ConversationsList/ConversationsList";
 export default function Home() {
   const user = localStorage.getItem("user");
   const atoken = localStorage.getItem("token");
@@ -40,20 +42,20 @@ export default function Home() {
       console.log("New FCM Token:", token);
 
       // 🔥 POST the token to backend
-      await axios.post(
-          "https://86l2d590-5000.inc1.devtunnels.ms/api/pns/store",
-          {
-            fcmToken:token
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${atoken}`,
-            },
-          },
+      // await axios.post(
+      //     "https://86l2d590-5000.inc1.devtunnels.ms/api/pns/store",
+      //     {
+      //       fcmToken:token
+      //     },
+      //     {
+      //       headers: {
+      //         Authorization: `Bearer ${atoken}`,
+      //       },
+      //     },
           
-        ).then((res)=>console.log(res.data)).catch((err)=>console.log(err));
+      //   ).then((res)=>console.log(res.data)).catch((err)=>console.log(err));
 
-      console.log("Token sent to backend");
+      // console.log("Token sent to backend");
 
     } catch (error) {
       console.log("Error generating token:", error);
@@ -100,13 +102,28 @@ export default function Home() {
     }
   }
   
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-green-100 flex-col">
-      <h1 className="text-3xl font-bold">Welcome to Home Page!</h1>
-      <div className="flex flex-col gap-5 pt-5">
+  
 
-      {/* <button onClick={handleFcm} className="px-2 py-1 bg-green-600 text-white rounded-2xl cursor-pointer">Store fcmToken</button> */}
-      <button onClick={testNotification} className="px-2 py-1 bg-blue-600 text-white rounded-2xl cursor-pointer">Test Notification</button>
+  const [selected, setSelected] = useState(null);
+  const userDetails = user && typeof user === 'string' ? JSON.parse(user) : user;
+  const userId = userDetails.data.user.id
+  // console.log(userId);
+  console.log(selected,"selected");
+  
+  localStorage.setItem("ss",JSON.stringify(selected))
+
+  return (
+   <div className="flex h-screen">
+      <div className="w-80 border-r">
+        <ConversationsList onSelect={(c) => setSelected(c)} />
+      </div>
+
+      <div className="flex-1">
+        {selected ? (
+          <Chat userId={userId} conversationId={selected.id} receiverId={selected.user1_id === userId ? selected.user2_id : selected.user1_id} />
+        ) : (
+          <div className="flex items-center justify-center h-full text-gray-500">Select a conversation</div>
+        )}
       </div>
     </div>
   );
