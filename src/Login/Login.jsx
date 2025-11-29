@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import Glogin from "../Glogin/Glogin";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -57,6 +58,7 @@ export default function Login() {
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
           Login
         </button>
+        <Glogin/>
 
         {message && <p className="text-center text-red-500 mt-4">{message}</p>}
       </form>
