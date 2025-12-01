@@ -18,7 +18,7 @@ const Glogin = () => {
   const handleError = () => {
     console.error("Google Login Failed");
   };
-  return <GoogleLogin onSuccess={handleSuccess} onError={handleError} />;
+  return <GoogleLogin onSuccess={handleSuccess} onError={handleError} shape="circle" />;
 };
 
 export default Glogin;
