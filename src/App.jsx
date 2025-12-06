@@ -14,6 +14,7 @@ import Chat from './Chat/Chat'
 import { socket } from './socket'
 import PendingBR from './PendingBloodRequest/PendingBR'
 import CommunityLogin from './CommuniyAdmin/Comminuty.login'
+import TestLocalS from './TestLocalS'
 
 function App() {
   const [onlineUsers , setOnlineUsers] = useState([])
@@ -73,6 +74,7 @@ function App() {
         <Route path="/community/register" element={<CommunityRegister />} />
         <Route path="/blood/pending" element={<PendingBR />} />
         <Route path="/community/login" element={<CommunityLogin />} />
+        <Route path="/test" element={<TestLocalS />} />
         
 
       </Routes>

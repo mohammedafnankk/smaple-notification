@@ -14,7 +14,7 @@ export const useChatSocket = (userId, conversationId, receiverId) => {
   //load old messages
   useEffect(()=>{
     if(!conversationId) return;
-    axios.get(`http://localhost:8000/api/conversation/${conversationId}/messages`,{ headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`https://staging-api.paadha.com/api/conversation/${conversationId}/messages`,{ headers: { Authorization: `Bearer ${token}` } })
     .then((res)=>{
         setMessages(res.data.data)
     });

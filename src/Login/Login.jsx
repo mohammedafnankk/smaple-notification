@@ -15,7 +15,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://86l2d590-5000.inc1.devtunnels.ms/api/user/login", {
+      const res = await axios.post("https://staging-api.paadha.com/api/user/login", {
         email,
         password,
       });

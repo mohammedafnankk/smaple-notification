@@ -6,7 +6,7 @@ const ConversationsList = ({onSelect}) => {
     useEffect(() => {
     const fetch = async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get("https://86l2d590-5000.inc1.devtunnels.ms/api/conversation", { headers: { Authorization: `Bearer ${token}` } });
+      const res = await axios.get("https://staging-api.paadha.com/api/conversation", { headers: { Authorization: `Bearer ${token}` } });
       setConvs(res.data.data || []);
       console.log(res.data);
       
