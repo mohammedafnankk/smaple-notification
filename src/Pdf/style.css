@@ -1,0 +1,316 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        
+
+        .certificate-wrapper {
+            position: relative;
+            width: 794px;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            /* height: 1123px; */
+            background: #fef9f3;
+        }
+
+        .bg-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom right, rgba(100, 187, 68, 0.05), transparent, rgba(100, 187, 68, 0.05));
+            filter: blur(50px);
+        }
+
+        .certificate-content {
+            position: relative;
+            background: #fef9f3;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            height: 64px;
+            background: #267508;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+        }
+
+        .header-logo {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .logo-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            letter-spacing: 0.05em;
+            font-weight: 300;
+        }
+
+        .logo-subtext {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            opacity: 0.8;
+            margin-top: -4px;
+        }
+
+        /* Main content */
+        .content {
+            padding: 180px 48px;
+        }
+
+        /* Title section */
+        .title-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            font-size: 10px;
+            letter-spacing: 0.4em;
+            color: #6b7280;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-family: Arial, sans-serif;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 60px;
+            color: #267508;
+            letter-spacing: 0.05em;
+        }
+
+        /* Decorative line */
+        .decorative-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .line {
+            height: 1px;
+            width: 80px;
+            background: linear-gradient(to right, transparent, rgba(38, 117, 8, 0.4));
+        }
+
+        .line.left {
+            background: linear-gradient(to left, transparent, rgba(38, 117, 8, 0.4));
+        }
+
+        .star-icon {
+            width: 20px;
+            height: 20px;
+            color: #267508;
+        }
+
+        /* Presentation text */
+        .presentation-text {
+            text-align: center;
+            color: rgba(44, 44, 44, 0.7);
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        /* Donor name */
+        .donor-name-section {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .donor-name {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 60px;
+            color: #267508;
+            margin-bottom: 8px;
+        }
+
+        .donor-underline {
+            width: 224px;
+            height: 2px;
+            margin: 0 auto;
+            background: linear-gradient(to right, transparent, #64BB44, transparent);
+        }
+
+        /* Description */
+        .description {
+            text-align: center;
+            color: rgba(44, 44, 44, 0.8);
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 448px;
+            margin: 0 auto 48px;
+            padding-top: 30px;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #267508;
+        }
+
+        /* Footer section */
+        .footer-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            padding-top: 30px;
+        }
+
+        .date-section,
+        .signature-section {
+            text-align: center;
+        }
+
+        .date-text,
+        .signature-text {
+            font-size: 20px;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
+
+        .signature-text {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            color: #267508;
+        }
+
+        .underline {
+            width: 96px;
+            height: 1px;
+            background: rgba(38, 117, 8, 0.3);
+            margin: 0 auto 4px;
+        }
+
+        .label {
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Seal */
+        .seal {
+            position: relative;
+            width: 96px;
+            height: 96px;
+        }
+
+        .seal-outer {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid #267508;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .seal-inner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid rgba(38, 117, 8, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .seal-content {
+            text-align: center;
+        }
+
+        .seal-icon {
+            width: 24px;
+            height: 24px;
+            color: #267508;
+            margin: 0 auto 4px;
+        }
+
+        .seal-text {
+            font-size: 6px;
+            letter-spacing: 0.05em;
+            color: #267508;
+            text-transform: uppercase;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Bottom quote */
+        .quote-section {
+            background: rgba(100, 187, 68, 0.05);
+            padding: 24px 32px;
+            border-top: 1px solid rgba(100, 187, 68, 0.1);
+        }
+
+        .quote-text {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(44, 44, 44, 0.7);
+            font-style: italic;
+        }
+
+        .quote-highlight {
+            color: #267508;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* Bottom bar */
+        .bottom-bar {
+            height: 12px;
+            background: #267508;
+        }
+
+        /* Responsive */
+        /* @media (max-width: 640px) {
+            .content {
+                padding: 40px 32px;
+            }
+
+            .main-title {
+                font-size: 48px;
+            }
+
+            .donor-name {
+                font-size: 48px;
+            }
+
+            .footer-section {
+                flex-direction: column;
+            }
+
+            .date-section {
+                order: 2;
+            }
+
+            .seal {
+                order: 1;
+            }
+
+            .signature-section {
+                order: 3;
+            }
+        } */

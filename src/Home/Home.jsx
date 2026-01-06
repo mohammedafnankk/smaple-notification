@@ -1,7 +1,7 @@
 import axios from "axios";
 import { deleteToken, getToken } from "firebase/messaging";
 import React, { useEffect, useState } from "react";
-import { messaging } from "../firebase";
+// import { messaging } from "../firebase";
 import Chat from "../Chat/Chat";
 import ConversationsList from "../ConversationsList/ConversationsList";
 export default function Home() {
@@ -11,60 +11,60 @@ export default function Home() {
   console.log(atoken);
    const vKey = import.meta.env.VITE_PUBLIC_FIREBASE_VAPID_KEY;
 
-  const requestPermission = async () => {
-    console.log("Requesting permission...");
+  // const requestPermission = async () => {
+  //   console.log("Requesting permission...");
 
-    const permission = await Notification.requestPermission();
+  //   const permission = await Notification.requestPermission();
 
-    if (permission !== "granted") {
-      console.log("Notification permission denied");
-      return;
-    }
+  //   if (permission !== "granted") {
+  //     console.log("Notification permission denied");
+  //     return;
+  //   }
 
-    console.log("Permission granted!");
-    // Delete existing token (forces FCM to create a new one)
-        try {
-          const currentToken = await getToken(messaging, { vapidKey: vKey });
-          if (currentToken) {
-            await deleteToken(messaging);
-            console.log("Old token deleted:", currentToken);
-          }
-        } catch (err) {
-          console.log("No existing token found");
-        }
+  //   console.log("Permission granted!");
+  //   // Delete existing token (forces FCM to create a new one)
+  //       try {
+  //         const currentToken = await getToken(messaging, { vapidKey: vKey });
+  //         if (currentToken) {
+  //           await deleteToken(messaging);
+  //           console.log("Old token deleted:", currentToken);
+  //         }
+  //       } catch (err) {
+  //         console.log("No existing token found");
+  //       }
 
-    try {
-      // ⚠️ Generate NEW token every time
-      const token = await getToken(messaging, {
-        vapidKey: vKey,
-      });
+  //   try {
+  //     // ⚠️ Generate NEW token every time
+  //     const token = await getToken(messaging, {
+  //       vapidKey: vKey,
+  //     });
 
-      console.log("New FCM Token:", token);
+  //     console.log("New FCM Token:", token);
 
-      // 🔥 POST the token to backend
-      await axios.post(
-          "https://staging-api.paadha.com/api/pns/store",
-          {
-            fcmToken:token
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${atoken}`,
-            },
-          },
+  //     // 🔥 POST the token to backend
+  //     await axios.post(
+  //         "https://staging-api.paadha.com/api/pns/store",
+  //         {
+  //           fcmToken:token
+  //         },
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${atoken}`,
+  //           },
+  //         },
           
-        ).then((res)=>console.log(res.data)).catch((err)=>console.log(err));
+  //       ).then((res)=>console.log(res.data)).catch((err)=>console.log(err));
 
-      console.log("Token sent to backend");
+  //     console.log("Token sent to backend");
 
-    } catch (error) {
-      console.log("Error generating token:", error);
-    }
-  };
+  //   } catch (error) {
+  //     console.log("Error generating token:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    requestPermission();
-  }, []); // Runs
+  // useEffect(() => {
+  //   requestPermission();
+  // }, []); // Runs
   
 
   // const handleFcm =()=>{

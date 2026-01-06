@@ -2,7 +2,7 @@ import React,{ useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { messaging } from './firebase'
+// import { messaging } from './firebase'
 import { getToken } from 'firebase/messaging'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Login/Login'
@@ -14,7 +14,9 @@ import Chat from './Chat/Chat'
 import { socket } from './socket'
 import PendingBR from './PendingBloodRequest/PendingBR'
 import CommunityLogin from './CommuniyAdmin/Comminuty.login'
-import TestLocalS from './TestLocalS'
+import Certificate from './Certificate'
+import Pdf from './Pdf/Pdf'
+import MyPdf from './MyPdf'
 
 function App() {
   const [onlineUsers , setOnlineUsers] = useState([])
@@ -66,7 +68,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/home" element={<Home />} />
         <Route path="/admin/login" element={<AdminLogin />} />
@@ -74,7 +76,8 @@ function App() {
         <Route path="/community/register" element={<CommunityRegister />} />
         <Route path="/blood/pending" element={<PendingBR />} />
         <Route path="/community/login" element={<CommunityLogin />} />
-        <Route path="/test" element={<TestLocalS />} />
+        <Route path="/test" element={<Certificate />} />
+        <Route path='/p' element={<Pdf/>}/>
         
 
       </Routes>

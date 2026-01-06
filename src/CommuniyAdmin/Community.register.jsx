@@ -2,7 +2,7 @@ import axios from 'axios';
 import { deleteToken, getToken } from 'firebase/messaging';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { messaging } from '../firebase';
+// import { messaging } from '../firebase';
 
 const CommunityRegister = () => {
     const [cName, setCname] = React.useState("");
@@ -14,38 +14,38 @@ const CommunityRegister = () => {
 
     const vKey = import.meta.env.VITE_PUBLIC_FIREBASE_VAPID_KEY;
     
-const requestPermission = async () => {
-  const permission = await Notification.requestPermission();
+// const requestPermission = async () => {
+//   const permission = await Notification.requestPermission();
 
-  if (permission !== "granted") {
-    console.log("Notification permission denied");
-    return;
-  }
+//   if (permission !== "granted") {
+//     console.log("Notification permission denied");
+//     return;
+//   }
 
-  try {
-    // Delete existing token (forces FCM to create a new one)
-    try {
-      const currentToken = await getToken(messaging, { vapidKey: vKey });
-      if (currentToken) {
-        await deleteToken(messaging);
-        console.log("Old token deleted:", currentToken);
-      }
-    } catch (err) {
-      console.log("No existing token found");
-    }
+//   try {
+//     // Delete existing token (forces FCM to create a new one)
+//     try {
+//       const currentToken = await getToken(messaging, { vapidKey: vKey });
+//       if (currentToken) {
+//         await deleteToken(messaging);
+//         console.log("Old token deleted:", currentToken);
+//       }
+//     } catch (err) {
+//       console.log("No existing token found");
+//     }
 
-    // Now generate a fresh token
-    const newToken = await getToken(messaging, { vapidKey: vKey });
-    console.log("New FCM Token:", newToken);
+//     // Now generate a fresh token
+//     const newToken = await getToken(messaging, { vapidKey: vKey });
+//     console.log("New FCM Token:", newToken);
 
-  } catch (error) {
-    console.log("Error generating token:", error);
-  }
-};
+//   } catch (error) {
+//     console.log("Error generating token:", error);
+//   }
+// };
 
-useEffect(() => {
-  requestPermission();
-}, []);
+// useEffect(() => {
+//   requestPermission();
+// }, []);
     const handleCregister = async (e) => {
         e.preventDefault();
           try {

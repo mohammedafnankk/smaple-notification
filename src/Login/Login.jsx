@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import Glogin from "../Glogin/Glogin";
+import image from '../assets/certificate.jpg'
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://staging-api.paadha.com/api/user/login", {
+      const res = await axios.post("http://localhost:8000/api/user/login", {
         email,
         password,
       });
@@ -63,5 +64,13 @@ export default function Login() {
         {message && <p className="text-center text-red-500 mt-4">{message}</p>}
       </form>
     </div>
+    // <div className="h-screen flex justify-center items-center">
+    //   <div className="relative">
+
+    //  <h1 className="absolute z-40 text-2xl translate-x-1/2 right-1/2 top-2/4 whitespace-nowrap break-keep">Mohammed  Mizhab CH</h1>
+    //  <img src={image} alt="" className="h-screen"/>
+    //  <h2 className="absolute z-40 right-2/3 translate-x-1/3 font-semibold top-3/4 whitespace-nowrap break-keep">12/9/2025</h2>
+    //   </div>
+    // </div>
   );
 }
